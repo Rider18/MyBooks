@@ -7,6 +7,7 @@ package ParteAnWei;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -15,9 +16,9 @@ import java.util.Scanner;
  *
  * @author David
  */
-public class DAORelato {
+public class DAOFanImp extends DAOFan {
 
-    public void insertar(TransferRelato tRelato) throws IOException {
+    public void addText(T_FAN tFan) throws IOException {
        /* Se utilizan dos ficheros, uno para guardar informacion general y otro para el contenido del propio relato, para poder consultar mejor el .txt
                 */ 
         
@@ -26,13 +27,11 @@ public class DAORelato {
 		BufferedWriter writer = new BufferedWriter(new FileWriter(archivo, true)); //sin el parametro true borraba lo que habia antes en el txt
 		if(archivo.exists()) {
 			archivo.createNewFile();
-			writer.write(tRelato.getId());
+			writer.write(tFan.getId());
 			writer.write(" ");
-			writer.write(tRelato.getTitulo());
-			writer.write(" ");
-			writer.write(tRelato.getDirectorioRelato());
+			writer.write(tFan.getDirectoryText());
                         writer.write(" ");
-			writer.write(tRelato.getIdUsuario());
+			writer.write(tFan.getIdUser());
 			writer.newLine();
 			
 		}
@@ -40,23 +39,43 @@ public class DAORelato {
      /* para mejor eficiencia a la hora de leer los relatos, se guarda el contenido en otro fichero aparte,  en la carpeta /relatos/.....  esto se puede ver en el tranfer
      el transferRelato
                 */
-        File archivo2 = new File(tRelato.getDirectorioRelato());
+            File archivo2 = new File(tFan.getDirectoryText());
 		if(!archivo2.exists()) 	archivo2.createNewFile();
 		BufferedWriter writer2 = new BufferedWriter(new FileWriter(archivo2, false)); // parametro false para borrar todo
 		if(archivo2.exists()) {
-			writer2.write(tRelato.getContenido());
+			writer2.write(tFan.getContent());
 			writer2.newLine();
 			
 		}
-		writer2.close();        
+		writer2.close();     
+        
+           
                 
     }
 
-    public TransferRelato leerPorId(String id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public T_FAN readForId(String id) throws FileNotFoundException, IOException {
+        File archivo = new File("relatos.txt");
+		if(!archivo.exists()) archivo.createNewFile();
+		
+		Scanner sc = new Scanner(archivo);
+		String relato;
+		String relatoArray[];
+		T_FAN tFan = null;
+		boolean encontrado = false, act;
+
+		while (sc.hasNext() && !encontrado) {
+			relato = sc.nextLine();
+			relatoArray = relato.split(" ");
+			if (relatoArray[0].equalsIgnoreCase(""+id)) {
+				encontrado = true;
+				tFan = new T_FAN(relatoArray[0], relatoArray[1], relatoArray[2]);
+			}
+		}
+		sc.close();
+		return tFan;
     }
     
-    public String generarSiguienteID() throws IOException{
+    public String generateNextId() throws IOException{
         String idFinal = " ";
 		 String relato;
 		 String relatos[];

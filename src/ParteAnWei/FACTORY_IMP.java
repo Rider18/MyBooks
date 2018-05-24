@@ -9,6 +9,12 @@ package ParteAnWei;
  *
  * @author David
  */
-public class TransferUsuario {
+public class FACTORY_IMP extends FACTORY {
+
+
+    @Override
+    public DAOFan getDAOFan() {
+        return new DAOFanImp();
+    }
     
 }

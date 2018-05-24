@@ -14,12 +14,12 @@ import java.util.logging.Logger;
  *
  * @author David
  */
-public class SubirTextoFrame extends javax.swing.JFrame {
+public class UploadText_View extends javax.swing.JFrame {
 
     /**
      * Creates new form SubirTexto
      */
-    public SubirTextoFrame() {
+    public UploadText_View() {
         initComponents();
     }
 
@@ -111,7 +111,7 @@ public class SubirTextoFrame extends javax.swing.JFrame {
         try {
             sa.addText(tRelato);
         } catch (IOException ex) {
-            Logger.getLogger(SubirTextoFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UploadText_View.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_insertarRelatoActionPerformed
 
@@ -132,21 +132,23 @@ public class SubirTextoFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SubirTextoFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UploadText_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SubirTextoFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UploadText_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SubirTextoFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UploadText_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SubirTextoFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UploadText_View.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SubirTextoFrame().setVisible(true);
+                new UploadText_View().setVisible(true);
             }
         });
     }
