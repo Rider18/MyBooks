@@ -106,10 +106,10 @@ public class SubirTextoFrame extends javax.swing.JFrame {
 
     private void insertarRelatoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarRelatoActionPerformed
         // TODO add your handling code here:
-        TransferRelato tRelato = new TransferRelato("", titulo.getText(), contenido.getText(),"");
-        SARelato sa = new SARelato();
+        T_FAN tRelato = new T_FAN("", titulo.getText(), contenido.getText(),"");
+        SAFan sa = new SAFanImp();
         try {
-            sa.crearRelato(tRelato);
+            sa.addText(tRelato);
         } catch (IOException ex) {
             Logger.getLogger(SubirTextoFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
