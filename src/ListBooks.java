@@ -1,3 +1,11 @@
+
+import Administration.*;
+import ParteAnWei.*;
+import interfaz.Forum.*;
+import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -24,58 +32,397 @@ public class ListBooks extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ForoPanel = new javax.swing.JPanel();
+        MyBooksPanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        FanPanel = new javax.swing.JPanel();
+        UsuarioPanel = new javax.swing.JPanel();
+        DinamicPanel = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        Inicio = new javax.swing.JMenu();
+        RentBookItem = new javax.swing.JMenu();
+        Foro = new javax.swing.JMenu();
+        NewComment = new javax.swing.JMenuItem();
+        NewThread = new javax.swing.JMenuItem();
+        ThreadDetail = new javax.swing.JMenuItem();
+        Fans = new javax.swing.JMenu();
+        Usuario = new javax.swing.JMenu();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout ForoPanelLayout = new javax.swing.GroupLayout(ForoPanel);
+        ForoPanel.setLayout(ForoPanelLayout);
+        ForoPanelLayout.setHorizontalGroup(
+            ForoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 421, Short.MAX_VALUE)
+        );
+        ForoPanelLayout.setVerticalGroup(
+            ForoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 629, Short.MAX_VALUE)
+        );
+
+        jLabel2.setText("MyBooks");
+
+        javax.swing.GroupLayout MyBooksPanelLayout = new javax.swing.GroupLayout(MyBooksPanel);
+        MyBooksPanel.setLayout(MyBooksPanelLayout);
+        MyBooksPanelLayout.setHorizontalGroup(
+            MyBooksPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MyBooksPanelLayout.createSequentialGroup()
+                .addGap(168, 168, 168)
+                .addComponent(jLabel2)
+                .addContainerGap(203, Short.MAX_VALUE))
+        );
+        MyBooksPanelLayout.setVerticalGroup(
+            MyBooksPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MyBooksPanelLayout.createSequentialGroup()
+                .addGap(269, 269, 269)
+                .addComponent(jLabel2)
+                .addContainerGap(334, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout FanPanelLayout = new javax.swing.GroupLayout(FanPanel);
+        FanPanel.setLayout(FanPanelLayout);
+        FanPanelLayout.setHorizontalGroup(
+            FanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 414, Short.MAX_VALUE)
+        );
+        FanPanelLayout.setVerticalGroup(
+            FanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 629, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout UsuarioPanelLayout = new javax.swing.GroupLayout(UsuarioPanel);
+        UsuarioPanel.setLayout(UsuarioPanelLayout);
+        UsuarioPanelLayout.setHorizontalGroup(
+            UsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 404, Short.MAX_VALUE)
+        );
+        UsuarioPanelLayout.setVerticalGroup(
+            UsuarioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 619, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout DinamicPanelLayout = new javax.swing.GroupLayout(DinamicPanel);
+        DinamicPanel.setLayout(DinamicPanelLayout);
+        DinamicPanelLayout.setHorizontalGroup(
+            DinamicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 404, Short.MAX_VALUE)
+        );
+        DinamicPanelLayout.setVerticalGroup(
+            DinamicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 619, Short.MAX_VALUE)
+        );
+
+        Inicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons8-biblioteca-24.png"))); // NOI18N
+        Inicio.setText("Mybooks");
+        Inicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                InicioMouseClicked(evt);
+            }
+        });
+
+        RentBookItem.setText("RentBook");
+        RentBookItem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RentBookItemMouseClicked(evt);
+            }
+        });
+        Inicio.add(RentBookItem);
+
+        jMenuBar1.add(Inicio);
+
+        Foro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons8-myspace-squared-24.png"))); // NOI18N
+        Foro.setText("Foro");
+        Foro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ForoMouseClicked(evt);
+            }
+        });
+
+        NewComment.setText("New Comment");
+        NewComment.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                NewCommentMouseClicked(evt);
+            }
+        });
+        Foro.add(NewComment);
+
+        NewThread.setText("New Thread");
+        NewThread.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                NewThreadMouseClicked(evt);
+            }
+        });
+        Foro.add(NewThread);
+
+        ThreadDetail.setText("ThreadDetail");
+        ThreadDetail.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ThreadDetailMouseClicked(evt);
+            }
+        });
+        Foro.add(ThreadDetail);
+
+        jMenuBar1.add(Foro);
+
+        Fans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons8-comentar-discusiÃ³n-filled-50.png"))); // NOI18N
+        Fans.setText("Fans");
+        Fans.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FansMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(Fans);
+
+        Usuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icons8-usuario-hombre-verificado-24.png"))); // NOI18N
+        Usuario.setText("Usuario");
+        Usuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UsuarioMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(Usuario);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(MyBooksPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(9, 9, 9)
+                    .addComponent(ForoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(9, 9, 9)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(19, 19, 19)
+                    .addComponent(FanPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(29, 29, 29)
+                    .addComponent(UsuarioPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(19, 19, 19)
+                    .addComponent(DinamicPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(16, 16, 16)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(MyBooksPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(ForoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(6, 6, 6)
+                    .addComponent(FanPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(6, 6, 6)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addComponent(UsuarioPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(6, 6, 6)
+                    .addComponent(DinamicPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(16, 16, 16)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ForoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForoMouseClicked
+        
+        MyBooksPanel.setVisible(false);
+        FanPanel.setVisible(false);
+        UsuarioPanel.setVisible(false);
+        ForoPanel.setVisible(true);
+        DinamicPanel.setVisible(false);
+        
+    }//GEN-LAST:event_ForoMouseClicked
+
+    private void UsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioMouseClicked
+        try {
+            
+            
+            LoginFrame login = new LoginFrame();
+            
+            UsuarioPanel.add(login);
+            
+            login.setMaximum(true);
+            login.setUI(null);
+            
+            login.setVisible(true);
+            FanPanel.setVisible(false);
+            UsuarioPanel.setVisible(true);
+            ForoPanel.setVisible(false);
+            MyBooksPanel.setVisible(false);        
+            
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(ListBooks.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_UsuarioMouseClicked
+
+    private void InicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InicioMouseClicked
+
+        MyBooksPanel.setVisible(true);
+        FanPanel.setVisible(false);
+        UsuarioPanel.setVisible(false);
+        DinamicPanel.setVisible(false);
+        ForoPanel.setVisible(false);
+    }//GEN-LAST:event_InicioMouseClicked
+
+    private void FansMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FansMouseClicked
+         try {
+            SubirTextoFrame fan = new SubirTextoFrame();
+            FanPanel.removeAll();
+            FanPanel.add(fan);
+            
+            fan.setMaximum(true);
+            fan.setUI(null);
+            
+            fan.setVisible(true);
+            FanPanel.setVisible(true);
+            UsuarioPanel.setVisible(false);
+            ForoPanel.setVisible(false);
+            MyBooksPanel.setVisible(false);        
+            
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(ListBooks.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_FansMouseClicked
+
+    private void RentBookItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RentBookItemMouseClicked
+ try {
+            
+            
+            RentBookFrame rent = new RentBookFrame();
+            DinamicPanel.removeAll();
+            DinamicPanel.add(rent);
+            
+            rent.setMaximum(true);
+            rent.setUI(null);
+            
+            rent.setVisible(true);
+            DinamicPanel.setVisible(true);
+            FanPanel.setVisible(false);
+            UsuarioPanel.setVisible(false);
+            ForoPanel.setVisible(false);
+            MyBooksPanel.setVisible(false);        
+            
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(ListBooks.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_RentBookItemMouseClicked
+
+    private void NewCommentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NewCommentMouseClicked
+        try {
+            NewCommentForm item = new NewCommentForm();
+            DinamicPanel.removeAll();
+            DinamicPanel.add(item);
+            
+            item.setMaximum(true);
+            item.setUI(null);
+            
+            item.setVisible(true);
+            DinamicPanel.setVisible(true);
+            FanPanel.setVisible(false);
+            UsuarioPanel.setVisible(false);
+            ForoPanel.setVisible(false);
+            MyBooksPanel.setVisible(false);        
+            
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(ListBooks.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_NewCommentMouseClicked
+
+    private void NewThreadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NewThreadMouseClicked
+        try {
+            NewThreadForm item = new NewThreadForm();
+            DinamicPanel.removeAll();
+            DinamicPanel.add(item);
+            
+            item.setMaximum(true);
+            item.setUI(null);
+            
+            item.setVisible(true);
+            DinamicPanel.setVisible(true);
+            FanPanel.setVisible(false);
+            UsuarioPanel.setVisible(false);
+            ForoPanel.setVisible(false);
+            MyBooksPanel.setVisible(false);        
+            
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(ListBooks.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_NewThreadMouseClicked
+
+    private void ThreadDetailMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ThreadDetailMouseClicked
+        try {
+            ThreadDetail item = new ThreadDetail();
+            DinamicPanel.removeAll();
+            DinamicPanel.add(item);
+            
+            item.setMaximum(true);
+            item.setUI(null);
+            
+            item.setVisible(true);
+            DinamicPanel.setVisible(true);
+            FanPanel.setVisible(false);
+            UsuarioPanel.setVisible(false);
+            ForoPanel.setVisible(false);
+            MyBooksPanel.setVisible(false);        
+            
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(ListBooks.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ThreadDetailMouseClicked
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListBooks.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
+        
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ListBooks().setVisible(true);
-            }
+                            }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel DinamicPanel;
+    private javax.swing.JPanel FanPanel;
+    private javax.swing.JMenu Fans;
+    private javax.swing.JMenu Foro;
+    private javax.swing.JPanel ForoPanel;
+    private javax.swing.JMenu Inicio;
+    private javax.swing.JPanel MyBooksPanel;
+    private javax.swing.JMenuItem NewComment;
+    private javax.swing.JMenuItem NewThread;
+    private javax.swing.JMenu RentBookItem;
+    private javax.swing.JMenuItem ThreadDetail;
+    private javax.swing.JMenu Usuario;
+    private javax.swing.JPanel UsuarioPanel;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 
 }
